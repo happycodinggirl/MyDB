@@ -19,6 +19,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private SQLiteDatabase sqLiteDatabase;
     static final String TABLE_NAME="lilytable";
+    int index;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,8 +42,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void add(){
+        index++;
         ContentValues contentValues=new ContentValues();
-        contentValues.put("name","lily");
+        contentValues.put("name","lily "+index);
         contentValues.put("age",2);
         sqLiteDatabase.insert(TABLE_NAME,null,contentValues);
     }
